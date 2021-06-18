@@ -11,6 +11,13 @@
 
 `pip install fastai_minima`
 
+## Dev install
+
+```
+pre-commit install
+pre-commit install --hook-type commit-msg
+```
+
 ## How to use
 
 This library is designed to bring in only the _minimal_ needed from [fastai](https://github.com/fastai/fastai) to work with raw Pytorch. This includes:
@@ -92,7 +99,7 @@ dls = DataLoaders(trainloader, testloader)
 ```python
 learn = Learner(dls, Net(), loss_func=criterion, opt_func=opt_func)
 
-# To use the GPU, do 
+# To use the GPU, do
 # learn = Learner(dls, Net(), loss_func=criterion, opt_func=opt_func, cbs=[CudaCallback()])
 ```
 
