@@ -1,0 +1,25 @@
+site_name: Fastai minima
+site_url: http://www.example.com
+plugins:
+- search
+- mkdocstrings:
+    watch:
+        - fastai_minima
+
+markdown_extensions:
+- admonition
+- pymdownx.highlight
+- pymdownx.superfences
+- pymdownx.inlinehilite
+- pymdownx.snippets
+- pymdownx.details
+
+extra_css:
+- css/mkdocstrings.css
+
+repo_name: Fastai minima
+repo_url: https://github.com/scart97/fastai_minima
+edit_uri: ""
+
+theme:
+  name: material

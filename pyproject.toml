@@ -20,8 +20,7 @@ classifiers = [
 ]
 include = [
     "README.md",
-    "LICENSE.txt",
-    "CHANGELOG.md"
+    "LICENSE.txt"
 ]
 
 [tool.poetry.dependencies]
@@ -36,6 +35,9 @@ fastprogress = "^1.0.0"
 [tool.poetry.dev-dependencies]
 pre-commit = "^2.13.0"
 commitizen = "^2.17.9"
+mkdocs = "^1.2.1"
+mkdocs-material = "^7.1.8"
+mkdocstrings = "^0.15.2"
 
 [tool.commitizen]
 name = "cz_conventional_commits"
