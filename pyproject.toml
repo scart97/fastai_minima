@@ -1,0 +1,40 @@
+[tool.poetry]
+name = "fastai_minima"
+version = "0.1.0"
+description = "minimal fastai"
+authors = ["Zachary Mueller", "Jeremy Howard", "Sylvain Gugger", "scart97",  "and contributors"]
+license = "apache2"
+readme = "README.md"
+keywords = ["python", "pytorch", "fastai"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Natural Language :: English",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+	"Intended Audience :: Developers",
+    "Operating System :: OS Independent",
+    "Environment :: Console",
+]
+include = [
+    "README.md",
+    "LICENSE.txt",
+    "CHANGELOG.md"
+]
+
+[tool.poetry.dependencies]
+python = ">=3.7.1,<4.0"
+torch = ">=1.7,<1.10"
+numpy = "^1.20.3"
+scikit-learn = "^0.24.2"
+pandas = "^1.2.4"
+matplotlib = "^3.4.2"
+fastprogress = "^1.0.0"
+
+[tool.poetry.dev-dependencies]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
