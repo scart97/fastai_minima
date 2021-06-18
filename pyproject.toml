@@ -38,9 +38,24 @@ commitizen = "^2.17.9"
 mkdocs = "^1.2.1"
 mkdocs-material = "^7.1.8"
 mkdocstrings = "^0.15.2"
+pytest = "^6.2.4"
+pytest-cov = "^2.12.1"
+hypothesis = "^6.14.0"
+black = {version = "^21.6b0", allow-prereleases = true}
 
 [tool.commitizen]
 name = "cz_conventional_commits"
+
+[tool.pytest.ini_options]
+minversion = "6.0"
+addopts = "--cov fastai_minima --cov-report term-missing --verbose"
+testpaths = [
+    "tests",
+]
+norecursedirs = [
+    "dist",
+    "build"
+]
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
