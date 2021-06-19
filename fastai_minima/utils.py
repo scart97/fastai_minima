@@ -1,5 +1,3 @@
-# flake8: noqa
-
 # Contains code used/modified by fastai_minima author from fastai
 # Copyright 2019 the fast.ai team.
 #
@@ -86,7 +84,7 @@ def to_concat(xs, dim=0):
     #   in this case we return a big list
     try:
         return retain_type(torch.cat(xs, dim=dim), xs[0])
-    except:
+    except Exception:
         return sum(
             [
                 L(
@@ -169,7 +167,6 @@ def item_find(x, idx=0):
     return x
 
 
-# Cell
 def find_device(b):
     "Recursively search the device of `b`."
     return item_find(b).device
@@ -210,7 +207,7 @@ norm_types = (
     nn.LayerNorm,
 )
 
-# Cell
+
 def norm_bias_params(m, with_bias=True):
     "Return all bias and BatchNorm parameters"
     if isinstance(m, norm_types):
