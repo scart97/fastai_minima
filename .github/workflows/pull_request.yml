@@ -2,19 +2,23 @@
 # For more information see: https://help.github.com/actions/language-and-framework-guides/using-python-with-github-actions
 # https://mestrak.com/blog/semantic-release-with-python-poetry-github-actions-20nn
 
-name: CI/CD
+name: CI pull request
 on:
-  push:
+  pull_request:
     branches: [ master ]
 
 jobs:
-  Test:
+  TestPR:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: [3.6, 3.7, 3.8]
     steps:
     - uses: actions/checkout@v2
-    - uses: actions/setup-python@v2
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v2
       with:
-        python-version: 3.8
+        python-version: ${{ matrix.python-version }}
     - name: Install Python Poetry
       uses: abatilo/actions-poetry@v2.1.0
       with:
@@ -26,7 +30,7 @@ jobs:
         poetry install
     - name: Test with pytest
       run: |
-        poetry run pytest -sv --cov-report=xml
+        poetry run pytest
     - name: Upload coverage to Codecov
       uses: codecov/codecov-action@v1
       with:
@@ -34,18 +38,3 @@ jobs:
         env_vars: PYTHON
         name: codecov-fastai_minima
         fail_ci_if_error: true
-
-  # https://python-semantic-release.readthedocs.io/en/latest/automatic-releases/github-actions.html
-  Release:
-    needs: Test
-    runs-on: ubuntu-latest
-    concurrency: release
-    steps:
-    - uses: actions/checkout@v2
-      with:
-        fetch-depth: 0
-    - name: Python Semantic Release
-      uses: relekang/python-semantic-release@master
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        # pypi_token: ${{ secrets.PYPI_TOKEN }}
