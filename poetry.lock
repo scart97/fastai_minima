@@ -246,6 +246,21 @@ redis = ["redis (>=3.0.0)"]
 zoneinfo = ["importlib-resources (>=3.3.0)", "backports.zoneinfo (>=0.2.1)", "tzdata (>=2020.4)"]
 
 [[package]]
+name = "hypothesis-gufunc"
+version = "0.0.6"
+description = "Extension to hypothesis to generate inputs for general universal (GU) numpy functions."
+category = "dev"
+optional = false
+python-versions = ">=3.6"
+
+[package.dependencies]
+hypothesis = ">=5.1.5"
+numpy = ">=1.16.1"
+
+[package.extras]
+xarray = ["hypothesis (>=5.1.5)", "xarray (>=0.12.3)"]
+
+[[package]]
 name = "identify"
 version = "2.2.10"
 description = "File identification library for Python"
@@ -851,7 +866,7 @@ testing = ["pytest (>=4.6)", "pytest-checkdocs (>=1.2.3)", "pytest-flake8", "pyt
 [metadata]
 lock-version = "1.1"
 python-versions = ">=3.7.1,<4.0"
-content-hash = "23af6374604eda23195e28d51b03a80b179f91ee587d9229679564e292207194"
+content-hash = "55218e24649d4d6ba543ebb5b4b8289c71660b7b4dd2a850cf4eb4e0a019f602"
 
 [metadata.files]
 appdirs = [
@@ -982,6 +997,9 @@ ghp-import = [
 hypothesis = [
     {file = "hypothesis-6.14.0-py3-none-any.whl", hash = "sha256:27aa2af763af06b8b61ce65c09626cf1da6d3a6ff155900f3c581837b453313a"},
     {file = "hypothesis-6.14.0.tar.gz", hash = "sha256:9bdee01ae260329b16117e9b0229a839b4a77747a985922653f595bd2a6a541a"},
+]
+hypothesis-gufunc = [
+    {file = "hypothesis_gufunc-0.0.6.tar.gz", hash = "sha256:76150691c0f2e8e6f8a059428f2b3b79d8ed3c4f8c5b1ee3e7a5db5ae87c3c66"},
 ]
 identify = [
     {file = "identify-2.2.10-py2.py3-none-any.whl", hash = "sha256:18d0c531ee3dbc112fa6181f34faa179de3f57ea57ae2899754f16a7e0ff6421"},
